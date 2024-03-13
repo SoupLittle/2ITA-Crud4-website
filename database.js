@@ -21,6 +21,7 @@ const auth = getAuth(app);
 
 // Hent knapper
 const loginBtn = document.getElementById('loginBtn');
+const googleBtn = document.getElementById( 'googleBtn' );
 const logoutBtn = document.getElementById('logoutBtn');
 const editMenuButtons = document.getElementById('editMenuButtons');
 
