@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+     <title>Meny Admin</title>
+
+ </head>
+
+ <body>
+    <h1>Velkommen til din nettside</h1>
+
+    <!-- Knapp for innlogging -->
+    <button id="loginBtn">Logg inn</button>
+    <button onclick="signInWithGoogle()">Logg inn med Google</button>
+    
+    <!-- Knapp for å logge ut -->
+    <button id="logoutBtn" style="display: none;">Logg ut</button>
+    
+    <!-- Knapper for redigering av meny -->
+    <div id="editMenuButtons" style="display: none;">
+        <button id="addMenuItemBtn">Legg til menyelement</button>
+        <button id="editMenuItemBtn">Rediger menyelement</button>
+        <button id="deleteMenuItemBtn">Slett menyelement</button>
+    </div>
+
+
+   
+    
+<script type="module" src="./database.js">
+
+</script>
+
+ </body>
+ </html>
