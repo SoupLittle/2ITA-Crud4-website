@@ -25,25 +25,17 @@ const logoutBtn = document.getElementById('logoutBtn');
 const editMenuButtons = document.getElementById('editMenuButtons');
 
 // Håndterer innlogging med Google OAuth
-function signInWithGoogle() {
+googleBtn.addEventListener( 'click', () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
         .then((result) => {
-            // Brukeren er logget inn, vis redigeringsknapper
-            editMenuButtons.style.display = 'block';
-            loginBtn.style.display = 'none';
-            logoutBtn.style.display = 'block';
-
-            const user = result.user;
-            console.log(user);
+            console.log("User signed in");
+            showProfile(result.user);
         })
         .catch((error) => {
-            // Håndter feil her
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error(errorMessage);
+            alert(error.message);
         });
-}
+});
 
 // Håndterer anonym innlogging
 loginBtn.addEventListener('click', () => {
@@ -52,6 +44,7 @@ loginBtn.addEventListener('click', () => {
             // Innlogging vellykket, vis redigeringsknapper
             editMenuButtons.style.display = 'block';
             loginBtn.style.display = 'none';
+            googleBtn.style.display = 'none';
             logoutBtn.style.display = 'block';
 
             console.log("Innlogging vellykket!");
