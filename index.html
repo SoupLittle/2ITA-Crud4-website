@@ -11,17 +11,6 @@
  </head>
 
  <body>
-    <header>
-        <div class="container">
-            <h1>Røyken vgs</h1>
-            <nav>
-                <ul>
-                    <!-- Lenke for å redigere menyen -->
-                    <li><a href="./meny-red.html">Rediger Meny</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
     
     <div class="container">
         <!-- Bilde og informasjon seksjon -->
@@ -39,8 +28,11 @@
         <img src="./autumn-soups.png" alt="Feature 1">
         <ul>
             <!-- Elementer for dagens meny fra Firebase-databasen -->
-            <li></li>
-            <li></li>
+            <li id="mandag">Mandag.....(monday.firebase)</li>
+            <li id="tirsdag">Tirsdag.....(tuesday.firebase)</li>
+            <li>Onsdag.....(Wednesday.firebase)</li>
+            <li>Torsdag.....(thursday.firebase)</li>
+            <li>Fredag.....(friday.firebase)</li>
         </ul>
     </div>
     
@@ -50,16 +42,13 @@
         <img src="./healthy-snacks.png" alt="Feature 2">
         <ul>
             <!-- Elementer for ordinære varer fra Firebase-databasen -->
-            <li>Burger - 50 kr</li>
-            <li>Sandwich - 40 kr</li>
-            <li>Salat - 35 kr</li>
-            <!-- Legg til flere elementer fra Firebase-databasen her -->
+           
         </ul>
     </div>
     
     <footer>
         <div class="container">
-            <p>&copy; 2024 Kantina. Alle rettigheter reservert.</p>
+            <p>&copy; 2024 Røyken vgs. Alle rettigheter reservert.</p>
         </div>
     </footer>
 <script type="module" src="./index.js">

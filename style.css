@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f7f2f7;
 }
 
 .container {
@@ -11,9 +12,11 @@ body {
 
 .image-section {
     flex: 1;
-    background-image: url('background-image.jpg');
+    background-image: url('./Bacground.png');
     background-size: cover;
 }
+
+/* Landing page text */
 
 .info-section {
     flex: 1;
@@ -35,8 +38,11 @@ body {
     text-align: center;
 }
 
+
+/* Week Menu */
+
 .menu-button {
-    background-color: #007bff;
+    background-color: #ECD0DC;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -47,8 +53,32 @@ body {
 }
 
 .menu-button:hover {
-    background-color: #0056b3;
+    background-color: #CFB5D2;
 }
+
+#weekly-menu,
+#daily-menu {
+    width: 90%;
+    max-width: 400px;
+    margin-top: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+@media (min-width:  768px) {
+    #weekly-menu,
+    #daily-menu {
+        float: left;
+        margin-right: 20px;
+    }
+    }
+    
+#mandag{
+    flex-direction: row;
+
+}
+
+/* Regular items */
 
 .regular-items {
     margin-top: 50px;

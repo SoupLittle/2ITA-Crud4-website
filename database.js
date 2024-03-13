@@ -30,8 +30,12 @@ googleBtn.addEventListener( 'click', () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
         .then((result) => {
-            console.log("User signed in");
-            showProfile(result.user);
+            editMenuButtons.style.display = 'block';
+            loginBtn.style.display = 'none';
+            googleBtn.style.display = 'none';
+            logoutBtn.style.display = 'block';
+
+            console.log("Innlogging vellykket!");
         })
         .catch((error) => {
             alert(error.message);
