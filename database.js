@@ -1,7 +1,7 @@
 // Import av nødvendige funksjoner og konfigurasjon
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signInAnonymously } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
 // Firebase konfigurasjon
 const firebaseConfig = {
