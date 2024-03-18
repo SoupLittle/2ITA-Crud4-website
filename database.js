@@ -18,15 +18,19 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
-
-// Hent knapper
+// Hent knapper og elementer
 const loginBtn = document.getElementById('loginBtn');
-const googleBtn = document.getElementById( 'googleBtn' );
-const logoutBtn = document.getElementById('logoutBtn');
+const googleBtn = document.querySelector('.go'); // Endret for å matche HTML-strukturen
+const logoutBtn = document.getElementById('logoutBtn'); // Legg til id="logoutBtn" i HTML-strukturen
 const editMenuButtons = document.getElementById('editMenuButtons');
 
+// Funksjon for å omdirigere til en annen side
+function redirectTo(path) {
+    window.location.href = path;
+}
+
 // Håndterer innlogging med Google OAuth
-googleBtn.addEventListener( 'click', () => {
+googleBtn.addEventListener('click', () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
         .then((result) => {
@@ -34,8 +38,8 @@ googleBtn.addEventListener( 'click', () => {
             loginBtn.style.display = 'none';
             googleBtn.style.display = 'none';
             logoutBtn.style.display = 'block';
-
             console.log("Innlogging vellykket!");
+            redirectTo('dashboard.html'); // Omdiriger til ønsket side etter innlogging
         })
         .catch((error) => {
             alert(error.message);
@@ -51,8 +55,8 @@ loginBtn.addEventListener('click', () => {
             loginBtn.style.display = 'none';
             googleBtn.style.display = 'none';
             logoutBtn.style.display = 'block';
-
             console.log("Innlogging vellykket!");
+            redirectTo('dashboard.html'); // Omdiriger til ønsket side etter innlogging
         })
         .catch((error) => {
             console.error("Innlogging mislyktes:", error);
@@ -66,15 +70,15 @@ logoutBtn.addEventListener('click', () => {
             // Logget ut, skjul redigeringsknapper
             editMenuButtons.style.display = 'none';
             loginBtn.style.display = 'block';
+            googleBtn.style.display = 'block'; // Vis Google-knappen igjen ved utlogging
             logoutBtn.style.display = 'none';
-
             console.log("Utlogging vellykket!");
+            redirectTo('index.html'); // Omdiriger til ønsket side etter utlogging
         })
         .catch((error) => {
             console.error("Utlogging mislyktes:", error);
         });
 });
-
 
 // Funksjon for å legge til et menyelement
 function leggTilMenyElement(element) {

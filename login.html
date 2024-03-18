@@ -5,17 +5,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" media="screen">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
      <title>Logg inn</title>
 
  </head>
 
- <body>
+    </head>
+    <body>
+       
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form>
+        <h3>Login Here</h3>
 
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email" id="username">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password">
+
+        <button id="loginBtn">Log In</button> <!-- Lagt til id="loginBtn" -->
+        <div class="social">
+            <div class="go"><i class="fab fa-google"></i> Google</div>
+        </div>
+    </form>
+    </body>
+    </html>
+    
    
     
-<script type="module" src="./database.js">
+<script type="module">
+// Import av nødvendige funksjoner og konfigurasjon
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
+// Firebase konfigurasjon
+const firebaseConfig = {
+    apiKey: "AIzaSyD8m55yLOuoIi4KsAo7b0xrz18r5MPLIyA",
+    authDomain: "crud-finale.firebaseapp.com",
+    projectId: "crud-finale",
+    storageBucket: "crud-finale.appspot.com",
+    messagingSenderId: "952140375871",
+    appId: "1:952140375871:web:1b8d04f1bc094a9414958a",
+    measurementId: "G-DBQWKCJKQT"
+  };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+// Hent knapper og elementer
+const loginBtn = document.getElementById('loginBtn');
+const googleBtn = document.querySelector('.go'); // Endret for å matche HTML-strukturen
+const logoutBtn = document.getElementById('logoutBtn'); // Legg til id="logoutBtn" i HTML-strukturen
+const editMenuButtons = document.getElementById('editMenuButtons');
+
+// Funksjon for å omdirigere til en annen side
+function redirectTo(path) {
+    window.location.href = 'C:/Users/Marlene/Desktop/VG2/Utvikling/2ITA-Crud4-website/meny-red.html';
+}
+
+// Håndterer innlogging med Google OAuth
+googleBtn.addEventListener('click', () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            editMenuButtons.style.display = 'block';
+            loginBtn.style.display = 'none';
+            googleBtn.style.display = 'none';
+            logoutBtn.style.display = 'block';
+            console.log("Innlogging vellykket!");
+            redirectTo('dashboard.html'); // Omdiriger til ønsket side etter innlogging
+        })
+        .catch((error) => {
+            alert(error.message);
+        });
+});
+
+// Håndterer anonym innlogging
+loginBtn.addEventListener('click', () => {
+    signInAnonymously(auth)
+        .then(() => {
+            // Innlogging vellykket, vis redigeringsknapper
+            editMenuButtons.style.display = 'block';
+            loginBtn.style.display = 'none';
+            googleBtn.style.display = 'none';
+            logoutBtn.style.display = 'block';
+            console.log("Innlogging vellykket!");
+            redirectTo('dashboard.html'); // Omdiriger til ønsket side etter innlogging
+        })
+        .catch((error) => {
+            console.error("Innlogging mislyktes:", error);
+        });
+});
+
+// Håndterer utlogging
+logoutBtn.addEventListener('click', () => {
+    auth.signOut()
+        .then(() => {
+            // Logget ut, skjul redigeringsknapper
+            editMenuButtons.style.display = 'none';
+            loginBtn.style.display = 'block';
+            googleBtn.style.display = 'block'; // Vis Google-knappen igjen ved utlogging
+            logoutBtn.style.display = 'none';
+            console.log("Utlogging vellykket!");
+            redirectTo('index.html'); // Omdiriger til ønsket side etter utlogging
+        })
+        .catch((error) => {
+            console.error("Utlogging mislyktes:", error);
+        });
+});
 </script>
 
  </body>
