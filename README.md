@@ -6,3 +6,7 @@ https://www.istockphoto.com/
 
 https://codepen.io/fghty/pen/PojKNEG
 
+https://www.w3schools.com/
+
+https://www.youtube.com/watch?v=YgjYVbg1oiA
+
