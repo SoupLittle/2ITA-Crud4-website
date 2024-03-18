@@ -19,11 +19,4 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
-// Front page scroll
-function scrollToMenu() {
-    window.scrollTo({
-        top: document.querySelector('.day-menu').offsetTop,
-        behavior: 'smooth'
-    });
-}
 
