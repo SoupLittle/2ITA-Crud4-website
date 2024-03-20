@@ -45,41 +45,34 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-import { getStorage } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-storage.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-storage.js";
+import { getDatabase, ref as dbRef, set } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+
 
  // Firebase konfigurasjon
  var firebaseConfig = {
      apiKey: "AIzaSyD8m55yLOuoIi4KsAo7b0xrz18r5MPLIyA",
      authDomain: "crud-finale.firebaseapp.com",
-     databaseURL: "https://crud-finale.firebaseio.com",
+     databaseURL: "https://crud-finale-default-rtdb.firebaseio.com/",
      projectId: "crud-finale",
      storageBucket: "crud-finale.appspot.com",
      messagingSenderId: "952140375871",
      appId: "1:952140375871:web:1b8d04f1bc094a9414958a",
      measurementId: "G-DBQWKCJKQT"
  };
-
-// Firebase konfigurasjon
-var firebaseConfig = {
-    apiKey: "AIzaSyD8m55yLOuoIi4KsAo7b0xrz18r5MPLIyA",
-    authDomain: "crud-finale.firebaseapp.com",
-    projectId: "crud-finale",
-    storageBucket: "crud-finale.appspot.com",
-    messagingSenderId: "952140375871",
-    appId: "1:952140375871:web:1b8d04f1bc094a9414958a",
-    measurementId: "G-DBQWKCJKQT"
-  };
+  
 
 // Initialize Firebase
 var app = initializeApp(firebaseConfig);
 var analytics = getAnalytics(app);
 var auth = getAuth(app);
+var storage = getStorage(app);
+var database = getDatabase(app);
+
 // Hent knapper og elementer
 var loginBtn = document.getElementById('loginBtn');
 var googleBtn = document.querySelector('.go'); // Endret for å matche HTML-strukturen
-var logoutBtn = document.getElementById('logoutBtn'); // Legg til id="logoutBtn" i HTML-strukturen
-var editMenuButtons = document.getElementById('editMenuButtons');
+
 
 // Funksjon for å omdirigere til en annen side
 function redirectTo(path) {
@@ -91,12 +84,7 @@ googleBtn.addEventListener('click', () => {
     var provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
         .then((result) => {
-            editMenuButtons.style.display = 'block';
-            loginBtn.style.display = 'none';
-            googleBtn.style.display = 'none';
-            logoutBtn.style.display = 'block';
-            console.log("Innlogging vellykket!");
-            redirectTo('dashboard.html'); // Omdiriger til ønsket side etter innlogging
+            redirectTo('meny-red.html'); // Omdiriger til ønsket side etter innlogging
         })
         .catch((error) => {
             alert(error.message);
@@ -107,13 +95,8 @@ googleBtn.addEventListener('click', () => {
 loginBtn.addEventListener('click', () => {
     signInAnonymously(auth)
         .then(() => {
-            // Innlogging vellykket, vis redigeringsknapper
-            editMenuButtons.style.display = 'block';
-            loginBtn.style.display = 'none';
-            googleBtn.style.display = 'none';
-            logoutBtn.style.display = 'block';
             console.log("Innlogging vellykket!");
-            redirectTo('dashboard.html'); // Omdiriger til ønsket side etter innlogging
+            redirectTo('meny-red.html'); // Omdiriger til ønsket side etter innlogging
         })
         .catch((error) => {
             console.error("Innlogging mislyktes:", error);
