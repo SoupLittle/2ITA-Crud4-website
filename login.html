@@ -178,13 +178,13 @@ button{
 // Funksjon for å omdirigere til en annen side
 function redirectTo(path) {
     window.location.href = path;
+    redirectTo('meny-red.html')
 }
 
     // Håndterer anonym innlogging
     loginBtn.addEventListener('click', () => {
         signInAnonymously(auth)
             .then(() => {
-                console.log("Innlogging vellykket!");
                 redirectTo('meny-red.html');
             })
             .catch((error) => {
