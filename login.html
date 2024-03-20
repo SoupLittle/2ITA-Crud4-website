@@ -120,22 +120,7 @@ loginBtn.addEventListener('click', () => {
         });
 });
 
-// Håndterer utlogging
-logoutBtn.addEventListener('click', () => {
-    auth.signOut()
-        .then(() => {
-            // Logget ut, skjul redigeringsknapper
-            editMenuButtons.style.display = 'none';
-            loginBtn.style.display = 'block';
-            googleBtn.style.display = 'block'; // Vis Google-knappen igjen ved utlogging
-            logoutBtn.style.display = 'none';
-            console.log("Utlogging vellykket!");
-            redirectTo('index.html'); // Omdiriger til ønsket side etter utlogging
-        })
-        .catch((error) => {
-            console.error("Utlogging mislyktes:", error);
-        });
-});
+
 </script>
 
  </body>
