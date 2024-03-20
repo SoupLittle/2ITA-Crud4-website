@@ -45,9 +45,23 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-storage.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+
+ // Firebase konfigurasjon
+ var firebaseConfig = {
+     apiKey: "AIzaSyD8m55yLOuoIi4KsAo7b0xrz18r5MPLIyA",
+     authDomain: "crud-finale.firebaseapp.com",
+     databaseURL: "https://crud-finale.firebaseio.com",
+     projectId: "crud-finale",
+     storageBucket: "crud-finale.appspot.com",
+     messagingSenderId: "952140375871",
+     appId: "1:952140375871:web:1b8d04f1bc094a9414958a",
+     measurementId: "G-DBQWKCJKQT"
+ };
 
 // Firebase konfigurasjon
-const firebaseConfig = {
+var firebaseConfig = {
     apiKey: "AIzaSyD8m55yLOuoIi4KsAo7b0xrz18r5MPLIyA",
     authDomain: "crud-finale.firebaseapp.com",
     projectId: "crud-finale",
@@ -58,14 +72,14 @@ const firebaseConfig = {
   };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const auth = getAuth(app);
+var app = initializeApp(firebaseConfig);
+var analytics = getAnalytics(app);
+var auth = getAuth(app);
 // Hent knapper og elementer
-const loginBtn = document.getElementById('loginBtn');
-const googleBtn = document.querySelector('.go'); // Endret for å matche HTML-strukturen
-const logoutBtn = document.getElementById('logoutBtn'); // Legg til id="logoutBtn" i HTML-strukturen
-const editMenuButtons = document.getElementById('editMenuButtons');
+var loginBtn = document.getElementById('loginBtn');
+var googleBtn = document.querySelector('.go'); // Endret for å matche HTML-strukturen
+var logoutBtn = document.getElementById('logoutBtn'); // Legg til id="logoutBtn" i HTML-strukturen
+var editMenuButtons = document.getElementById('editMenuButtons');
 
 // Funksjon for å omdirigere til en annen side
 function redirectTo(path) {
@@ -74,7 +88,7 @@ function redirectTo(path) {
 
 // Håndterer innlogging med Google OAuth
 googleBtn.addEventListener('click', () => {
-    const provider = new GoogleAuthProvider();
+    var provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
         .then((result) => {
             editMenuButtons.style.display = 'block';

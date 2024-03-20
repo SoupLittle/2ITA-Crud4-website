@@ -1,0 +1,28 @@
+/* styles.css */
+
+.day-menu {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .day-boxes {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .day-box {
+    width: calc(20% - 20px);
+    margin: 10px;
+  }
+  
+  .day-box input,
+  .day-box textarea {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .day-box label {
+    display: block;
+    font-weight: bold;
+  }
+  
