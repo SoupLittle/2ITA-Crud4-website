@@ -172,25 +172,31 @@ button{
     var analytics = getAnalytics(app);
     var auth = getAuth(app);
 
-    // Hent knapper og elementer
-    var loginBtn = document.getElementById('loginBtn');
-
-// Funksjon for å omdirigere til en annen side
-function redirectTo(path) {
-    window.location.href = path;
-    redirectTo('meny-red.html')
-}
-
-    // Håndterer anonym innlogging
-    loginBtn.addEventListener('click', () => {
-        signInAnonymously(auth)
-            .then(() => {
-                redirectTo('meny-red.html');
-            })
-            .catch((error) => {
-                console.error("Innlogging mislyktes:", error);
+    document.addEventListener('DOMContentLoaded', function() {
+        var loginBtn = document.getElementById('loginBtn');
+        
+        if (loginBtn) {
+            console.log("Login button found.");
+            loginBtn.addEventListener('click', () => {
+                console.log("Login button clicked.");
+                signInAnonymously(auth)
+                    .then(() => {
+                        console.log("User logged in successfully.");
+                        window.alert("Du er logget inn");
+                        location.href = "meny-red.html"; //TODO: Den reloader bare samme side
+                        // location.href = "2ITA-Crud4-website//meny-red.html"
+                        // location.href = "https://souplittle.github.io/2ITA-Crud4-website/meny-red.html"
+                    })
+                    .catch((error) => {
+                        console.error("Innlogging mislyktes:", error);
+                    });
             });
+        } else {
+            console.error("Element with ID 'loginBtn' not found.");
+        }
     });
+    
+
 </script>
 </body>
 </html>
