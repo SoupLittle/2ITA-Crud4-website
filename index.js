@@ -49,8 +49,8 @@ function displayMenu(menuData) {
         <div class="menu-item">
           <h3>${day.charAt(0).toUpperCase() + day.slice(1)}</h3>
           <p><strong>Navn:</strong> ${menuItem.name}</p>
+          <p><strong>Pris:</strong> ${menuItem.price} kr</p>
           <p><strong>Beskrivelse:</strong> ${menuItem.desc}</p>
-          <p><strong></strong> ${menuItem.price}</p>
           <img src="${menuItem.image}" alt="${menuItem.name}" width="300">
         </div>
       `;
