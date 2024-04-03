@@ -32,6 +32,7 @@ h1{
 
 .menu-item h3 {
     margin-top: 0;
+    text-align: center;
 }
 
 .menu-item img {
@@ -39,3 +40,5 @@ h1{
     width: 100%;
     height: auto;
 }
+
+
