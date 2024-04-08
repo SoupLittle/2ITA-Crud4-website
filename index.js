@@ -51,7 +51,7 @@ function displayMenu(menuData) {
           <p><strong>Navn:</strong> ${menuItem.name}</p>
           <p><strong>Pris:</strong> ${menuItem.price} kr</p>
           <p><strong>Beskrivelse:</strong> ${menuItem.desc}</p>
-          <img src="${menuItem.image}" alt="${menuItem.name}" width="100px" height="100px">
+          <img src="${menuItem.image}" alt="${menuItem.name}">
         </div>
       `;
     }

@@ -37,9 +37,12 @@ h1{
 }
 
 .menu-item img {
+    width: 200px;
+    height: 200px; /* Set the desired size */
+    object-fit: cover; /* Preserve aspect ratio */
     margin-top: 10px;
-    width: 100%;
-    height: auto;
+    margin-bottom: 10px; /* Adjust as needed */
+    display: block; /* Ensure images behave as block elements */
 }
 
 
