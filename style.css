@@ -1,3 +1,5 @@
+/* Style til index.html */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -87,7 +89,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* Legg til disse stilene i style.css */
+
 
 .items-grid {
     display: grid;

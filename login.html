@@ -136,6 +136,7 @@ button{
 
     </style>
 </head>
+
 <body>
 <div class="background">
     <div class="shape"></div>
@@ -147,7 +148,7 @@ button{
     <input type="text" placeholder="Email" id="username">
     <label for="password">Password</label>
     <input type="password" placeholder="Password" id="password">
-    <button id="loginBtn" type="button" onclick="login()">Log In</button>
+    <button id="loginBtn" type="button" onclick="login()">Log In</button><br/>
 </form>
 
 <script>
@@ -161,7 +162,7 @@ button{
             return; 
         }
 
-        // Check if username and password are correct
+        // Sjekker om brukernavn og passord er korrekt
         if (username === "Admin" && password === "LOL") {
             window.location.href = "./meny-red.html";
         } else {
@@ -169,59 +170,16 @@ button{
         }
     }
 
-</script>
-
-<!-- FIKK IKKE DENNE TIL Å FUNKE, JEG GA OPP -->
-
-<!-- <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
-    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-
-    // Firebase konfigurasjon
-    var firebaseConfig = {
-        apiKey: "AIzaSyD8m55yLOuoIi4KsAo7b0xrz18r5MPLIyA",
-        authDomain: "crud-finale.firebaseapp.com",
-        databaseURL: "https://crud-finale-default-rtdb.firebaseio.com/",
-        projectId: "crud-finale",
-        storageBucket: "crud-finale.appspot.com",
-        messagingSenderId: "952140375871",
-        appId: "1:952140375871:web:1b8d04f1bc094a9414958a",
-        measurementId: "G-DBQWKCJKQT"
-    };
-
-
-    // Initialize Firebase
-    var app = initializeApp(firebaseConfig);
-    var auth = getAuth(app);
-
-
-//TODO:
-
-    document.addEventListener('DOMContentLoaded', function() {
-        var loginBtn = document.getElementById('loginBtn');
-        
-        if (loginBtn) {
-            loginBtn.addEventListener('click', () => {
-                signInAnonymously(auth)
-                    .then(() => {
-                        window.alert("Du er logget inn"); 
-                        // Forsøk omadressering
-                        location.assign("https://souplittle.github.io/2ITA-Crud4-website/meny-red.html")
-                        //location.href = "https://souplittle.github.io/2ITA-Crud4-website/meny-red.html";
-                        // location.href = "meny-red.html";
-                    })
-                    .catch((error) => {
-                        console.error("Innlogging mislyktes:", error);
-                    });
-            });
-        } else {
-            console.error("Element with ID 'loginBtn' not found.");
+    // Legg til event listener for tastaturenhendelse
+    document.getElementById("password").addEventListener("keyup", function(event) {
+        // Sjekk om tasten som er trykket er Enter-tasten
+        if (event.keyCode === 13) {
+            // Kall login-funksjonen når Enter-tasten er trykket
+            login();
         }
     });
-    
 
-</script> -->
+</script>
 
 </body>
 </html>

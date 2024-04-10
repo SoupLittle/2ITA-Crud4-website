@@ -1,4 +1,4 @@
-/* Generell styling */
+/* Generell styling til uke-meny.html*/
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,6 +9,11 @@ body {
     width: 80%;
     margin: auto;
 }
+
+.text-center {
+    text-align: center;
+  }
+  
 
 h1{
     text-align: center;
