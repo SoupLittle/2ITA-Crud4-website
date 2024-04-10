@@ -92,12 +92,13 @@ h2 {
 .items-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 kolonner med like stor bredde */
-    grid-gap: 20px; /* Mellomrom mellom elementene */
+    grid-gap: 50px; /* Mellomrom mellom elementene */
+    
 }
 
 .item {
     background-color: #f9f9f9;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
 }
 

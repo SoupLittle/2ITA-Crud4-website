@@ -14,6 +14,8 @@ h1{
     text-align: center;
 }
 
+
+
 /* Ukesmeny */
 #menu-container {
     display: flex;
@@ -38,11 +40,11 @@ h1{
 
 .menu-item img {
     width: 200px;
-    height: 200px; /* Set the desired size */
-    object-fit: cover; /* Preserve aspect ratio */
-    margin-top: 10px;
-    margin-bottom: 10px; /* Adjust as needed */
-    display: block; /* Ensure images behave as block elements */
+    height: 200px;
+    object-fit: cover; 
+    margin-top: 50px;
+    margin-bottom: 10px;
+    display: block; 
 }
 
 

@@ -26,7 +26,7 @@ var database = getDatabase(app);
 
 // Hent menydata fra Firebase Database
 function fetchMenuData() {
-  var dbMenuRef = ref(database); // Referanse til rot av databasen
+  var dbMenuRef = ref(database); 
   get(dbMenuRef).then((snapshot) => {
     var menuData = snapshot.val();
     displayMenu(menuData);
